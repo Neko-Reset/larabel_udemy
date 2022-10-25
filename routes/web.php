@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\TestController; // ファイル内で使えるようにする
 
 /*
 |--------------------------------------------------------------------------
