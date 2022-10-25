@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 // Laravel8から配列で描くようになっている
 // tests/testはフォルダ名/ファイル名
+// [ TestController::class, "index" ]はtestコントローラのindexメソッドにアクセスしてねという意味
+// これからindexの処理を書いていく
 Route::get( "tests/test", [ TestController::class, "index" ] );
