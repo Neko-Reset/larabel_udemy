@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Laravel8から配列で描くようになっている
+// tests/testはフォルダ名/ファイル名
 Route::get( "tests/test", [ TestController::class, "index" ] );
