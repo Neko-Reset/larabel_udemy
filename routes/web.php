@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController; // ファイル内で使えるようにする
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Laravel8から配列で描くようになっている
-// tests/testはフォルダ名/ファイル名
-// [ TestController::class, "index" ]はtestコントローラのindexメソッドにアクセスしてねという意味
-// これからindexの処理を書いていく
-Route::get( "tests/test", [ TestController::class, "index" ] );
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
