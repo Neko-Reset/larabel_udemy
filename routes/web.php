@@ -23,7 +23,7 @@ Route::get('tests/test', [ TestController::class, 'index' ]);
 // リソースルートの書き方
 // railsと概念が一緒
 // 第一引数はフォルダ名
-// Route::resource('contacts', ContactFormController::class);
+Route::resource('contacts', ContactFormController::class);
 
 Route::get('/', function () {
     return view('welcome');
