@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ContactFormController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,13 @@ use App\Http\Controllers\TestController;
 */
 
 // testテーブルのindexのルート
+// フォルダ名/ファイル名
 Route::get('tests/test', [ TestController::class, 'index' ]);
+
+// リソースルートの書き方
+// railsと概念が一緒
+// 第一引数はフォルダ名
+// Route::resource('contacts', ContactFormController::class);
 
 Route::get('/', function () {
     return view('welcome');
