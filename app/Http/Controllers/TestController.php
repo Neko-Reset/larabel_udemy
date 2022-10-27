@@ -17,6 +17,7 @@ class TestController extends Controller
     // indexの処理
     public function index ()
     {
+        dd('test');
         // railsのUser.allと一緒
         // Eloquent(エロクアント)
         $values = Test::all(); //Eloquent/Collection
