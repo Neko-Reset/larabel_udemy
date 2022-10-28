@@ -23,7 +23,22 @@ Route::get('tests/test', [ TestController::class, 'index' ]);
 // リソースルートの書き方
 // railsと概念が一緒
 // 第一引数はフォルダ名
-Route::resource('contacts', ContactFormController::class);
+// Route::resource('contacts', ContactFormController::class);
+
+// 一行ずつ書く場合
+// ->name('contacts.index');でルート情報に名前をつけている
+// ビュー側でリンクを貼るときに便利になる
+// Route::get('contacts', [ ContactFormController::class, 'index' ])->name('contacts.index');
+
+// グループで書く場合
+// グループ化してまとめるとシンプルに書ける
+Route::prefix('contacts') // 頭にcontactsをつける
+->middleware([ 'auth' ]) // 認証
+->controller(ContactFormController::class) // コントローラ指定(laravel9から)
+->name('contact.') // グループ化
+->group(function(){
+    Route::get('/', 'index')->name('index'); // 名前つきルート
+});
 
 Route::get('/', function () {
     return view('welcome');
