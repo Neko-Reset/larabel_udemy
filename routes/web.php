@@ -35,9 +35,11 @@ Route::get('tests/test', [ TestController::class, 'index' ]);
 Route::prefix('contacts') // 頭にcontactsをつける
 ->middleware([ 'auth' ]) // 認証
 ->controller(ContactFormController::class) // コントローラ指定(laravel9から)
-->name('contact.') // グループ化
+->name('contacts.') // グループ化
 ->group(function(){
     Route::get('/', 'index')->name('index'); // 名前つきルート
+    Route::get('/create', 'create')->name('create');
+
 });
 
 Route::get('/', function () {
