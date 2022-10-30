@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ContactForm;
 
 class ContactFormController extends Controller
 {
@@ -34,7 +35,19 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request, $request->name); // 中身を見る $request->nameでnameの値が見れる
+        // dd($request, $request->name); // 中身を見る $request->nameでnameの値が見れる
+
+        ContactForm::create([
+            'name' => $request->name,
+            'title' => $request->title,
+            'email' => $request->email,
+            'url' => $request->url,
+            'gender' => $request->gender,
+            'age' => $request->age,
+            'contact' => $request->contact,
+        ]);
+        // リダイレクトの書き方 Laravel9からこの記述フォルダ名/ファイル名
+        return to_route('contacts.index');
     }
 
     /**
