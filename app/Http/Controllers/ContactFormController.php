@@ -34,7 +34,7 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request, $request->name); // 中身を見る $request->nameでnameの値が見れる
     }
 
     /**
